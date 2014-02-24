@@ -1,0 +1,21 @@
+==  AlterUsers: reverting =====================================================
+-- remove_index("admin_users", "username")
+   -> 0.1316s
+-- rename_column("admin_users", "hashed_password", "password")
+   -> 0.0275s
+-- change_column("admin_users", "email", :string, {:default=>"", :null=>false})
+   -> 0.0361s
+-- remove_column("admin_users", "username")
+   -> 0.0225s
+-- rename_table("admin_users", "users")
+   -> 0.0036s
+==  AlterUsers: reverted (0.2216s) ============================================
+
+==  CreateUsers: reverting ====================================================
+-- drop_table(:users)
+   -> 0.0239s
+==  CreateUsers: reverted (0.0239s) ===========================================
+
+==  DoNothingYet: reverting ===================================================
+==  DoNothingYet: reverted (0.0000s) ==========================================
+
